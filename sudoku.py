@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 
-#old code that didnt change
+# old code that didn't change
 def is_valid(board, row, col, num):
     for i in range(9):
         if board[row][i] == num or board[i][col] == num:
@@ -40,14 +40,15 @@ def solve_button_action():
     else:
         messagebox.showerror("Sudoku Solver", "No solution exists.")
 
-# GUI setup 
+# GUI setup
 root = tk.Tk()
 root.title("Sudoku Solver")
+root.configure(bg="#D2B48C")
 
-frames = [[tk.Frame(root, highlightbackground="black", highlightthickness=2) for _ in range(3)] for _ in range(3)]
+frames = [[tk.Frame(root, highlightbackground="black", highlightthickness=2, bg="#D2B48C") for _ in range(3)] for _ in range(3)]
 entries = [[None for _ in range(9)] for _ in range(9)]
 
-#3x3 bordered frames
+# 3x3 bordered frames
 for box_row in range(3):
     for box_col in range(3):
         frames[box_row][box_col].grid(row=box_row, column=box_col, padx=2, pady=2)
@@ -61,3 +62,4 @@ solve_button = tk.Button(root, text="Solve", command=solve_button_action, font=(
 solve_button.grid(row=3, column=0, columnspan=3, pady=10)
 
 root.mainloop()
+
